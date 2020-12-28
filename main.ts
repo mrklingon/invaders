@@ -3,7 +3,7 @@ input.onButtonPressed(Button.A, function () {
 })
 function DispBlank (num: number) {
     for (let index = 0; index <= 4; index++) {
-        led.unplot(index, num)
+    	
     }
 }
 input.onButtonPressed(Button.AB, function () {
@@ -21,7 +21,7 @@ input.onButtonPressed(Button.B, function () {
 function DispEnemy (num: number) {
     for (let index = 0; index <= 4; index++) {
         if (Enemy[0] == 1) {
-            led.plot(index, num)
+        	
         }
     }
 }
