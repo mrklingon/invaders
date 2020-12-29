@@ -1,4 +1,5 @@
 input.onButtonPressed(Button.A, function () {
+    music.playTone(220, music.beat(BeatFraction.Sixteenth))
     Player.change(LedSpriteProperty.X, -1)
 })
 function doEnemy (en: number, row: number) {
@@ -25,6 +26,9 @@ function DispBlank (num: number) {
 }
 input.onButtonPressed(Button.AB, function () {
     Torpedo = game.createSprite(Player.get(LedSpriteProperty.X), Player.get(LedSpriteProperty.Y))
+    music.playTone(523, music.beat(BeatFraction.Sixteenth))
+    music.playTone(784, music.beat(BeatFraction.Sixteenth))
+    music.playTone(988, music.beat(BeatFraction.Sixteenth))
     for (let index = 0; index < 4; index++) {
         Torpedo.change(LedSpriteProperty.Y, -1)
         basic.pause(100)
@@ -35,6 +39,7 @@ input.onButtonPressed(Button.AB, function () {
 })
 input.onButtonPressed(Button.B, function () {
     Player.change(LedSpriteProperty.X, 1)
+    music.playTone(880, music.beat(BeatFraction.Sixteenth))
 })
 function delEnemy (num: number) {
     if (0 == num) {
@@ -71,12 +76,34 @@ let Enemy: number[] = []
 let zero = 0
 zero = 0
 game.setLife(10)
+images.createBigImage(`
+    . . # # . . . . . .
+    . # # # # . . . . .
+    . . # # . . . # . .
+    . . . . . . # # # .
+    . . . . . . . # . .
+    `).scrollImage(1, 200)
+images.createBigImage(`
+    . . # # . . . . . .
+    . # # # # . . . . .
+    . . # # . . . # . .
+    . . . . . . # # # .
+    . . . . . . . # . .
+    `).scrollImage(1, 200)
+basic.showLeds(`
+    . . . . .
+    . . . . .
+    . . . . .
+    . . . . .
+    . . . . .
+    `)
 Enemy = [1, 1, 1, 1, 1]
 let Blank = [0, 0, 0, 0, 0]
 Player = game.createSprite(2, 4)
 basic.forever(function () {
     basic.pause(2000)
     while (true) {
+        music.playTone(131, music.beat(BeatFraction.Quarter))
         for (let index = 0; index <= 4; index++) {
             DispEnemy(index)
             basic.pause(2000)
