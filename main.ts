@@ -35,6 +35,7 @@ input.onButtonPressed(Button.AB, function () {
     }
     Torpedo.delete()
     game.addScore(Enemy[Player.get(LedSpriteProperty.X)] * 50)
+    delEnemy(Player.get(LedSpriteProperty.X))
     Enemy[Player.get(LedSpriteProperty.X)] = zero
 })
 input.onButtonPressed(Button.B, function () {
