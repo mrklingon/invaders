@@ -116,6 +116,6 @@ basic.forever(function () {
             game.removeLife(Enemy[index])
         }
         Enemy = [1, 1, 1, 1, 1]
-        Pause = Pause / 2
+        Pause = Pause * 0.75
     }
 })
