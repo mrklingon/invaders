@@ -66,6 +66,7 @@ function DispEnemy (num: number) {
         }
     }
 }
+let Pause = 0
 let Torpedo: game.LedSprite = null
 let E4: game.LedSprite = null
 let E3: game.LedSprite = null
@@ -103,16 +104,18 @@ let Blank = [0, 0, 0, 0, 0]
 Player = game.createSprite(2, 4)
 basic.forever(function () {
     basic.pause(2000)
+    Pause = 3000
     while (true) {
         music.playTone(131, music.beat(BeatFraction.Quarter))
         for (let index = 0; index <= 4; index++) {
             DispEnemy(index)
-            basic.pause(2000)
+            basic.pause(Pause)
             DispBlank(index)
         }
         for (let index = 0; index <= 4; index++) {
             game.removeLife(Enemy[index])
         }
         Enemy = [1, 1, 1, 1, 1]
+        Pause = Pause / 2
     }
 })
